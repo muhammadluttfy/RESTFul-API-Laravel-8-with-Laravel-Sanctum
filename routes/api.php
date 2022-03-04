@@ -22,9 +22,9 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
+Route::post('/login', [AuthController::class, 'index']);
+
 Route::group(['middleware' => 'auth:sanctum'], function () {
-    Route::get('/form', [FormController::class, 'index']);
+    Route::post('/create', [FormController::class, 'create']);
     Route::get('/logout', [AuthController::class, 'logout']);
 });
-
-Route::post('/login', [AuthController::class, 'index']);
